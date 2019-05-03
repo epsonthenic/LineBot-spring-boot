@@ -25,8 +25,10 @@ public class AppLineBotServiceImp implements AppLineBotDataService {
     @Override
     public List<MasterDataDetail> masterDatakey(Long id, String code) {
         List<MasterDataDetail> listKeyword = masterDataDetailRepository.findMasterDataDetailsByIdEquals(id, code);
+//        checkTextMatches new
         LOGGER.info("listKeyword : {}", listKeyword.size());
         String resultKeyword = "";
+        AppLineBotServiceImp.checkTextMatches(resultKeyword);
         List<String> keywordSplitList = null;
         resultKeyword = listKeyword.get(0).getVariable1();
         LOGGER.info("num : {}", resultKeyword);
@@ -64,7 +66,6 @@ public class AppLineBotServiceImp implements AppLineBotDataService {
 
     public static boolean checkTextMatches(String str) {
         int countKeyword = 0;
-        int countProgram = 0;
 
         for (String keyword : LIST_KEYWORD) {
             if (str.indexOf(keyword) >= 0) {
@@ -72,13 +73,7 @@ public class AppLineBotServiceImp implements AppLineBotDataService {
                 break;
             }
         }
-        for (String keyword : LIST_PROGRAM) {
-            if (str.indexOf(keyword) >= 0) {
-                countProgram++;
-                break;
-            }
-        }
-        if (countKeyword != 0 || countProgram != 0) {
+        if (countKeyword != 0) {
             return true;
 
         } else {
@@ -88,16 +83,16 @@ public class AppLineBotServiceImp implements AppLineBotDataService {
 
     public static String checkText(String str) {
 
-        int countProgram1 = 0;
-        String ontext = "";
+        int countProgram = 0;
+        String outtext = "";
         for (String keyword : LIST_KEYWORD) {
-            String listprogram = LIST_KEYWORD.get(countProgram1);
+            String listprogram = LIST_KEYWORD.get(countProgram);
             if (str.equals(listprogram)) {
-                ontext = LIST_PROGRAM.get(countProgram1);
+                outtext = LIST_PROGRAM.get(countProgram);
             }
-            countProgram1++;
+            countProgram++;
         }
-        return ontext;
+        return outtext;
     }
 
 }
