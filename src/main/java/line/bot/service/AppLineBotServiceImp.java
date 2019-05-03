@@ -19,7 +19,6 @@ public class AppLineBotServiceImp implements AppLineBotDataService {
 
     public static List<String> LIST_KEYWORD = new ArrayList<>();
     public static List<String> LIST_PROGRAM = new ArrayList<>();
-//    public static List<String> LIST_ANSWER = new ArrayList<>();
 
     private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
@@ -91,10 +90,10 @@ public class AppLineBotServiceImp implements AppLineBotDataService {
 
         int countProgram1 = 0;
         String ontext = "";
-        for (String keyword : LIST_PROGRAM) {
-            String listprogram = LIST_PROGRAM.get(countProgram1);
+        for (String keyword : LIST_KEYWORD) {
+            String listprogram = LIST_KEYWORD.get(countProgram1);
             if (str.equals(listprogram)) {
-                ontext = LIST_KEYWORD.get(countProgram1);
+                ontext = LIST_PROGRAM.get(countProgram1);
             }
             countProgram1++;
         }

@@ -1,7 +1,5 @@
 package line.bot.controller;
 
-//import com.iphayao.linebot.flex.*;
-//import com.iphayao.linebot.helper.RichMenuHelper;
 import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.Event;
@@ -49,8 +47,6 @@ public class LineBotController {
                                     }
                                     this.reply(replyToken, Arrays.asList(
                                             new TextMessage(AppLineBotServiceImp.checkText(text))
-//                                            new TextMessage("ชื่อคุณคือ: " + profile.getDisplayName()),
-//                                            new TextMessage("ID คุณคือ: " + profile.getUserId())
                                     ));
                                 });
                     }

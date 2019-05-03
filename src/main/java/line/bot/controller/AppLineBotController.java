@@ -18,9 +18,6 @@ public class AppLineBotController {
 
     private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
-//    @Autowired
-//    private AppMailDataService appMailDataService;
-
     @Autowired
     private AppLineBotDataService appLineBotDataService;
 
